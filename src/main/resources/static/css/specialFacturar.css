@@ -1,0 +1,49 @@
+#boxspe{
+    background-color: burlywood;
+    border-radius: 10px;
+    width: 80%;
+    margin: 0 auto;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    font-weight: bolder;
+    text-align: center;
+    font-size: x-large;
+
+}
+
+#boxspe table{
+    width:80%;
+    max-height: 5%;
+    overflow-y: auto;
+}
+
+#boxspe table td img{
+    width: 50px;
+    height:50px;
+}
+
+#box2{
+    height:100px;
+    margin-bottom:0px;
+    margin-top: 10px;
+}
+#box2 form{
+    margin-top: 10px;
+    height:60px;
+    margin-bottom: 20px;
+}
+
+#speb{
+    height:30px;
+    width:30px;
+}
+
+#box2 label, #box2 input, #box2 p{
+    height: 10px;
+    margin-bottom: 5px;
+}
+
+#box2 label, #box2 input{
+    display:inline-block;
+    width:200px;
+}

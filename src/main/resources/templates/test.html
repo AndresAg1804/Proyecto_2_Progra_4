@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:extends="HeaderFooter">
+<div th:replace="HeadFooter :: head"></div>
+<div th:replace="HeadFooter :: header"></div>
+<body>
+<br>
+<div class="conte">
+<form method="post" action="#" th:action="@{/login/login}">
+    <div>
+        <label for="usern">Username:</label>
+        <input type="text" id="usern" name="usern" placeholder="Enter Username" required>
+        <label for="pasw">Password:</label>
+        <input type="password" id="pasw" name="pasw" placeholder="Enter Password" required>
+        <button type="submit">Login</button>
+        <label>New with us?</label>
+        <label>Create your new acount today</label>
+        <label><a href="/newU">CREATE NEW ACCOUNT</a></label>
+    </div>
+</form>
+</div>
+<div>
+    <div th:replace="HeadFooter :: footer"></div>
+</div>
+</body>
+</html>

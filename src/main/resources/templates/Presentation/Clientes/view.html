@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:extends="HeadFooter">
+<head>
+    <title>Facturacion</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../static/css/Menu.css">
+    <link rel="stylesheet" href="../../../static/css/styleHeaderFooter.css">
+    <link rel="stylesheet" href="../../../static/css/productos.css">
+</head>
+<div class="header">
+    <div>
+        <div>
+            <p>Facturación </p> <p>electronica</p></div>
+        <div><img class="logo" src="../../../static/Images/logo.png" alt=""/></div>
+    </div>
+    <ul class="Menu">
+        <li>
+            <a href="/presentation/AcercaDe/show">Acerca De</a>
+        </li>
+        <li>
+            <a href="/presentation/Facturar/show">Facturar</a>
+        </li>
+        <li>
+            <a href="/presentation/Clientes/show">Clientes</a>
+        </li>
+        <li>
+            <a href="/presentation/Productos/show">Productos</a>
+        </li>
+        <li>
+            <a href="/presentation/Facturas/show">Facturas</a>
+        </li>
+        <li>
+            <a href="/presentation/Usuarios/show">Usuario</a>
+        </li>
+        <li>
+            <a href="/presentation/OUT/OUT">Logout</a>
+        </li>
+    </ul>
+</div>
+<br>
+<div class="all">
+    <div class="productos" >
+
+        <div class="ex_para_overflow" style="max-height: 100%" >
+
+            <table>
+                <tr>
+                    <div class="arriba">
+                        <div class="searchC">
+                            <form  action="/presentation/Clientes/search" th:object="${clienteSearch}" method="post">
+                                <input type="text" th:field="*{nombreC}">
+                                <input type="submit" value="Search">
+                            </form>
+                        </div>
+                    </div>
+
+                </tr>
+                <thead>
+
+                <tr>
+                    <th> </th>
+                    <th>Identificacion</th>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Telefono</th>
+                    <th> </th>
+
+                </tr>
+
+                </thead>
+
+                <tr th:each="c: ${clientes}">
+                    <td>
+                        <a th:href="@{'/presentation/Facturar/FindClient?nombreC=' + ${c.getIdC()}}"><img class="editimg" src="../../../static/Images/check.png"></a>
+                    </td>
+                    <td>
+                        <div th:text="${c.getIdC()}"></div>
+                    </td>
+                    <td>
+                        <div th:text="${c.getNombreC()}"></div>
+                    </td>
+                    <td>
+                        <div th:text="${c.getCorreo()}"></div>
+                    </td>
+                    <td>
+                        <div th:text="${c.getTelefono()}"></div>
+                    </td>
+                    <td>
+                        <a th:href="@{'/presentation/Clientes/edit?idC=' + ${c.getIdC()}}"><img class="editimg" src="../../../static/Images/edit.png"></a>
+                    </td>
+                </tr>
+
+            </table>
+
+        </div>
+
+
+        <div class="forms">
+            <form class="producto-forms" method="post" action="/presentation/Clientes/save" th:object="${clienteEdit}">
+                <div>
+                    <h2>Editar</h2>
+                </div>
+                <th:block th:if="${mode==0}">
+                    <div class="form-group">
+                        <label>ID:</label>
+                        <input type="text" th:field="*{idC}" required>
+                        <div th:if="${#fields.hasErrors('idC')}" th:errors="*{idC}">
+                            Error
+                        </div>
+                    </div>
+                </th:block>
+                <th:block th:unless="${mode==0}">
+                    <div class="form-group">
+                        <label>ID:</label>
+                        <input type="text" th:value="*{idC}" readonly="readonly">
+                    </div>
+                </th:block>
+                <div class="form-group">
+                    <label>Nombre:</label>
+                    <input type="text" th:field="*{nombreC}" required>
+                    <div th:if="${#fields.hasErrors('nombreC')}" th:errors="*{nombreC}">
+                        Error
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Correo:</label>
+                    <input type="text" th:field="*{correo}" required>
+                    <div th:if="${#fields.hasErrors('correo')}" th:errors="*{correo}">
+                        Error
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Telefono:</label>
+                    <input type="text" th:field="*{telefono}" required>
+                    <div th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}">
+                        Error
+                    </div>
+                </div>
+                <button type="submit" >Crear Cliente</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+<footer>
+    facturasOnline@best.team.com
+</footer>
+</html>
+
+
+<!--
+<div>
+        <table>
+            <caption>Clientes</caption>
+            <thead>
+            <tr>
+                <th>Identificacion</th>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Telefono</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <form action="/presentation/Clientes/search" th:object="${clienteSearch}" method="post">
+                    <input type="text" th:field="*{nombreC}">
+                    <input type="submit" value="Search">
+                </form>
+            </tr>
+            <tr th:each="cliente : ${clientes}">
+                <td th:text="${cliente.getIdC()}"></td>
+                <td th:text="${cliente.getNombreC()}"></td>
+                <td th:text="${cliente.getCorreo()}"></td>
+                <td th:text="${cliente.getTelefono()}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <h1 class="caption">Editar...</h1>
+        <form action="/presentation/Clientes/create" th:object="${clienteEdit}" method="post">
+            <div class="form">
+                <div>
+                    <div>Identificacion</div>
+                    <div>
+                        <input type="text" th:field="*{idC}">
+                    </div>
+                </div>
+                <div>
+                    <div>Nombre</div>
+                    <div>
+                        <input type="text" th:field="*{nombreC}">
+                    </div>
+                </div>
+                <div>
+                    <div>Correo</div>
+                    <div>
+                        <input type="text" th:field="*{correo}">
+                    </div>
+                </div>
+                <div>
+                    <div>Telefono</div>
+                    <div>
+                        <input type="text" th:field="*{telefono}">
+                    </div>
+                </div>
+                <div>
+                    <button type="submit">Editar</button>
+                </div>
+
+            </div>
+        </form>
+    </div>-->

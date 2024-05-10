@@ -1,0 +1,78 @@
+form, #box2, #box3{
+    background-color: burlywood;
+    border-radius: 10px;
+    width: 1000px;
+    margin: 0 auto;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    font-weight: bolder;
+    text-align: center;
+    font-size: x-large;
+}
+
+#box2, #box3{
+    width: 800px;
+}
+
+
+
+#box2:first-child, #box3:first-child{
+    margin-top:50px;
+    display:block;
+}
+#box2 p, #box3 p{
+    font-size: xx-large;
+}
+
+
+form div:first-child{
+    margin-top: 20%;
+}
+
+form label{
+    display:inline-block;
+    horiz-align: center;
+    width: 400px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom:20px;
+    font-size: large;
+}
+
+form input{
+    display:inline-block;
+    horiz-align: center;
+    width: 400px;
+    height:30px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom:20px;
+    border: none;
+    border-radius: 5px;
+}
+
+form button{
+    display:inline-block;
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    padding: 0;
+    background-image: url(/static/Images/check.png);
+    border-radius: 5px;
+}
+
+#up{
+    width: 40px;
+    height: 40px;
+}
+
+#down{
+    width: 40px;
+    height: 40px;
+}
+
+form button:hover {
+    background-color: green;
+}
+
+

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<head>
+    <title>Facturacion</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../static/css/newU.css">
+    <link rel="stylesheet" href="../../../static/css/Menu.css">
+    <link rel="stylesheet" href="../../../static/css/styleHeaderFooter.css">
+</head>
+<body>
+<div class="header">
+    <div>
+        <div>
+            <p>Facturación </p> <p>electronica</p></div>
+        <div><img class="logo" src="../../../static/Images/logo.png" alt=""/></div>
+    </div>
+
+    <ul class="Menu">
+        <li>
+            <a href="/presentation/AcercaDe/show">Acerca De</a>
+        </li>
+        <li>
+            <a href="/presentation/Login/show">Login</a>
+        </li>
+
+    </ul>
+</div>
+<div id="special">
+<form  method="post" action="#" th:action="@{/Usuarios/newU}">
+    <div>
+        <label for="usern">Type your username:</label>
+        <input type="text" id="usern" name="usern" size="10" value="" placeholder="Enter Username" required>
+        <label for="pasw">Type your password:</label>
+        <input type="password" id="pasw" name="pasw" size="10" value="" placeholder="Enter Password " required>
+
+        <label for="nombreP">Nombre:</label>
+        <input type="text" id="nombreP" name="nombreP" placeholder="Enter Name" required>
+        <label for="idP">idP:</label>
+        <input type="text" id="idP" name="idP" placeholder="Enter id for the sistem" required>
+
+        <label for="tipo">Role: </label>
+        <select name="tipo" id="tipo" >
+            <option value="PRO">Proveedor</option>
+        </select>
+        <label >When you're done, click DONE</label>
+        <button   type="submit">DONE</button>
+    </div>
+</form>
+</div>
+<div>
+    <footer>
+        facturasOnline@best.team.com
+    </footer>
+</div>
+</body>
+</html>

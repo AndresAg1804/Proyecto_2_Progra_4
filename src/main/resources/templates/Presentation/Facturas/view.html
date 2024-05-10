@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:extends="HeadFooter">
+<head>
+    <title>Facturacion</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../static/css/Menu.css">
+    <link rel="stylesheet" href="../../../static/css/styleHeaderFooter.css">
+    <link rel="stylesheet" href="../../../static/css/facturas.css">
+</head>
+<div class="header">
+    <div>
+        <div>
+            <p>Facturación </p> <p>electronica</p></div>
+        <div><img class="logo" src="../../../static/Images/logo.png" alt=""/></div>
+    </div>
+    <ul class="Menu">
+        <li>
+            <a href="/presentation/AcercaDe/show">Acerca De</a>
+        </li>
+        <li>
+            <a href="/presentation/Facturar/show">Facturar</a>
+        </li>
+        <li>
+            <a href="/presentation/Clientes/show">Clientes</a>
+        </li>
+        <li>
+            <a href="/presentation/Productos/show">Productos</a>
+        </li>
+        <li>
+            <a href="/presentation/Facturas/show">Facturas</a>
+        </li>
+        <li>
+            <a href="/presentation/Usuarios/show">Usuario</a>
+        </li>
+        <li>
+            <a href="/presentation/OUT/OUT">Logout</a>
+        </li>
+    </ul>
+</div>
+<br>
+<div class="all">
+    <div class="productos">
+        <div class="ex_para_overflow">
+            <table>
+                <tr>
+                    <form class="producto-buscar" method="post" th:action="@{/factura/buscar}">
+                        <div class="form-group-buscar">
+                            <label for="Numfact">Numfact:</label>
+                            <input type="text" name="numFact" id="Numfact" value="">
+                            <button type="submit" >Buscar</button>
+                        </div>
+                    </form>
+                </tr>
+                <tr> <th>Num Factura</th><th>Cliente</th> <th>Proveedor</th> <th>Monto</th> <th> PDF/XML</th></tr>
+                <tr th:each="u: ${Sfacturas}">
+                    <td th:text="${u.getNumFact()}"/>
+                    <td th:text="${u.getClientesByIdCliente().getNombreC()}"/>
+                    <td th:text="${u.getProveedoresByIdProveedor().getNombreP()}"/>
+                    <td th:text="${u.getTotal()}"/>
+                    <td>
+                        <a th:href="@{/Facturas/pdf(numFact=${u.getNumFact()})}"><img class="files" src="../../../static/Images/pdf.png"></a>
+                        <a th:href="@{/Facturas/xml(numFact=${u.getNumFact()})}"><img class="files" src="../../../static/Images/XML.png"></a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<footer>
+    facturasOnline@best.team.com
+</footer>
+</html>

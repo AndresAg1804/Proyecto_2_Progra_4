@@ -1,0 +1,54 @@
+form{
+    background-color: lightgray;
+    border-radius: 10px;
+    width: 500px;
+    margin: 0 auto;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    font-weight: bolder;
+    text-align: center;
+}
+
+form div:first-child{
+    margin-top: 30%;
+}
+
+form label{
+    display:block;
+    horiz-align: center;
+    width: 500px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom:20px;
+    font-size: large;
+}
+
+form input{
+    display:block;
+    horiz-align: center;
+    width: 400px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom:20px;
+    margin-inline-start: 50px;
+    border: none;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: limegreen;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px; /* Rounded corners for button */
+    cursor: pointer;
+    width: 475px;
+    horiz-align: center;
+}
+
+
+
+
+form button:hover {
+    background-color: green;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<head>
+    <title>Facturacion</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../static/css/Menu.css">
+    <link rel="stylesheet" href="../../../static/css/styleHeaderFooter.css">
+    <link rel="stylesheet" href="../../../static/css/tablaClientes.css">
+</head>
+<body>
+<div class="header">
+    <div>
+        <div>
+            <p>Facturación </p> <p>electronica</p></div>
+        <div><img class="logo" src="../../../static/Images/logo.png" alt=""/></div>
+    </div>
+    <ul class="Menu">
+        <li>
+            <a href="/presentation/AcercaDe/show">Acerca De</a>
+        </li>
+        <li>
+            <a href="/presentation/Facturar/show">Facturar</a>
+        </li>
+        <li>
+            <a href="/presentation/Clientes/show">Clientes</a>
+        </li>
+        <li>
+            <a href="/presentation/Productos/show">Productos</a>
+        </li>
+        <li>
+            <a href="/presentation/Facturas/show">Facturas</a>
+        </li>
+        <li>
+            <a href="/presentation/Usuarios/show">Usuario</a>
+        </li>
+        <li>
+            <a href="/presentation/OUT/OUT">Logout</a>
+        </li>
+    </ul>
+</div>
+<div>
+
+    <table style="border: 4px solid blue">
+        <tr> <th>Username</th> <th>Password</th> <th>Tipo</th>  <th:block th:if="${session.usuario.getTipo()=='PRO'}"><th>ID Proveedor</th> <th>Nombre Proveedor</th> </th:block> <th>...</th> </tr>
+        <tr >
+            <td th:text="${session.usuario.getUsern()}"></td>
+            <td th:text="${session.usuario.getPasw()}"></td>
+            <td th:text="${session.usuario.getTipo()}"></td>
+            <th:block th:if="${session.usuario.getTipo()=='PRO'}">
+                <td th:text="${session.usuario.getProveedoresByIdprov().getIdP()}"></td>
+                <td th:text="${session.usuario.getProveedoresByIdprov().getNombreP()}"></td>
+            </th:block>
+        </tr>
+    </table>
+
+
+</div>
+<div>
+    <footer>
+        facturasOnline@best.team.com
+    </footer>
+</div>
+</body>
+</html>

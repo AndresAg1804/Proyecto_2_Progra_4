@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Facturar</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../static/css/Menu.css">
+    <link rel="stylesheet" href="../../../static/css/formTablas.css">
+    <link rel="stylesheet" href="../../../static/css/styleHeaderFooter.css">
+    <link rel="stylesheet" href="../../../static/css/Table.css">
+    <link rel="stylesheet" href="../../../static/css/specialFacturar.css">
+
+
+</head>
+<body>
+<div class="header">
+    <div>
+        <div>
+            <p>Facturación </p> <p>electronica</p></div> <div><img class="logo"
+            src="../../../static/Images/logo.png"></div>
+    </div>
+    <div>
+        <ul class="Menu">
+            <li>
+                <a href="/presentation/AcercaDe/show">Acerca De</a>
+            </li>
+            <li>
+                <a href="/presentation/Facturar/show">Facturar</a>
+            </li>
+            <li>
+                <a href="/presentation/Clientes/show">Clientes</a>
+            </li>
+            <li>
+                <a href="/presentation/Productos/show">Productos</a>
+            </li>
+            <li>
+                <a href="/presentation/Facturas/show">Facturas</a>
+            </li>
+            <li>
+                <a href="/presentation/Usuarios/show">Usuario</a>
+            </li>
+            <li>
+                <a href="/presentation/OUT/OUT">Logout</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<form method="get" action="#" th:action="@{/presentation/Facturar/FindClient}" class="SinTabla">
+    <label>Proveedor: </label>
+    <label th:text="${session.usuario.getProveedoresByIdprov().getNombreP()}"></label>
+    <label for="nombreC">Cliente</label>
+
+
+    <th:block th:if="${session.cliente!=null}">
+    <th:block th:text="${session.cliente.getNombreC()}"></th:block>
+    </th:block>
+    <input type="text" id="nombreC" name="nombreC" placeholder="Type the client ID" >
+    <button type="submit" ></button>
+    <a th:href="@{/presentation/Clientes/show}"><img class="lupa" src="../../../static/Images/lupa.png"/></a>
+</form>
+
+
+<form id="box2" method="get" action="#" th:action="@{/presentation/Facturar/AddProduct}">
+    <p>Productos</p>
+    <label for="idP">Producto: </label>
+    <input type="text" id="idP" name="idP" placeholder="Type the product ID" >
+    <button id="speb" type="submit"></button>
+    <a th:href="@{/presentation/Productos/show}"><img class="lupa" src="../../../static/Images/lupa.png"/></a>
+</form>
+
+<div id="boxspe">
+    <p>Productos</p>
+    <table>
+        <thead>
+        <tr>
+            <th>...</th>
+            <th>Cantidad</th>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Monto</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="det: ${session.DetallesVentaS}">
+            <td><a th:href="@{/Facturar/EliminateProduct(idProd=${det.getProductoByIdProd().getIdPr()})}"><img src="../../../static/Images/xSymbol.png"/></a></td>
+            <td th:text="${det.getCantidad()}"></td>
+            <td th:text="${det.getProductoByIdProd().getNombreP()}"></td>
+            <td th:text="${det.getProductoByIdProd().getPrecio()}"></td>
+            <td th:text="${det.getMonto()}"></td>
+            <td><a th:href="@{/Facturar/AumentarCant(idprod=${det.getProductoByIdProd().getIdPr()}, cant=${det.getCantidad()})}"><img id="up" src="../../../static/Images/UpArrow.png"/></a></td>
+            <td><a th:href="@{/Facturar/DisminuirCant(idprod=${det.getProductoByIdProd().getIdPr()}, cant=${det.getCantidad()})}"><img id="down" src="../../../static/Images/DownArrow.png"/></a></td>
+        </tr>
+
+        </tbody>
+    </table>
+    <a th:href="@{/Facturar/Guardar}"><button>Finalizar compra</button></a>
+</div>
+
+<div>
+    <footer>
+        facturasOnline@best.team.com
+    </footer>
+</div>
+</body>
+</html>

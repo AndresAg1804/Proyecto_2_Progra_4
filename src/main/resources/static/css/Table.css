@@ -1,0 +1,21 @@
+table {
+    display: block;
+    border-collapse: collapse;
+    width: 600px;
+    horiz-align: center;
+    margin-left: 170px;
+    margin-right: 100px;
+}
+
+th,td{
+    padding:8px;
+    text-align:center;
+    border-bottom: 1px solid rgb(128, 128, 128);
+    horiz-align: center;
+    vertical-align: middle;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+

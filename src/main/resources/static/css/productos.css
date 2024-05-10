@@ -1,0 +1,186 @@
+/*--------------------------------------------------------*/
+.all {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    height: 75vh;
+    margin: 0px;
+    padding: 0px;
+    padding-bottom: 17px;
+}
+
+.productos {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    width: 95%;
+    height: 70vh;
+    font-weight: bold;
+    border-radius: 5px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.ex_para_overflow {
+    width: 70%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 500px;
+    color: black;
+
+    margin-left: 10px;
+    margin-right: 100px;
+    padding-right: 24px;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    height: 500px;
+    background-color: rebeccapurple;
+}
+
+.caption {
+    font-family: "Bradley Hand ITC";
+    font-size: 2em;
+    font-weight: bold;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    margin: 0 auto;
+}
+
+.searchC{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    height: 10%;
+    margin: 0 auto;
+    padding: 0px;
+}
+
+.arriba{
+    display: flex;
+}
+
+.productos table {
+    border-collapse: collapse;
+    background-color: white;
+    color: black;
+    margin-right: 10px;
+    margin-left: 10px;
+    width: 100%;
+    border: 4px solid white;
+    height: 90%;
+}
+
+.productos th {
+    position: sticky;
+    top: 0;
+    background-color: lightgray;
+}
+.productos td{
+    text-align: center;
+}
+
+.forms {
+    background-color: lightgray;
+    border-radius: 10px;
+    width: 25%;
+    height: 60%;
+    margin: 0px;
+    align-items: center;
+    font-weight: bolder;
+    text-align: center;
+    padding: 0px;
+    color: black;
+}
+.producto-forms{
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+}
+.form-group{
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    display: flex;
+    margin: 10px;
+    padding: 0px;
+    width: 70%;
+    height: 50px;
+}
+.form-group label{
+    display: flex;
+    margin: 0px;
+    padding: 0px;
+    width: 25%;
+    height: 100%;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+}
+.form-group input{
+    border-radius: 5px;
+    border: 1px solid gray;
+    margin: 0px;
+    padding: 0px;
+    width: 65%;
+    height: 80%;
+    background-color: white;
+}
+
+form div:first-child{
+    margin-bottom: 10%;
+}
+
+.forms form {
+    margin: 10px;
+    padding-right: 10px;
+}
+
+
+form button {
+    background-color: rebeccapurple;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 300px;
+    height: 10%;
+    horiz-align: center;
+}
+.editimg{
+    width: 50px; /* Set the desired width */
+    height: 50px;
+}
+.producto-buscar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    margin-bottom-bottom: 10px;
+    width: 10%;
+}
+.form-group-buscar input{
+    width: 40%;
+}
+.form-group-buscar label{
+    color: white;
+    font-size: larger;
+}
+.form-group-buscar button{
+    background-color: white;
+    color: rebeccapurple;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    horiz-align: center;
+}

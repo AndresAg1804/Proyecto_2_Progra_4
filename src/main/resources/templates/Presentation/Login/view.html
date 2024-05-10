@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:extends="HeadFooter">
+<head>
+    <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../static/css/Menu.css">
+    <link rel="stylesheet" href="../../../static/css/styleHeaderFooter.css">
+    <link rel="stylesheet" href="../../../static/css/productos.css">
+</head>
+<div class="header">
+    <div>
+        <div>
+            <p>Facturación </p> <p>electronica</p></div>
+        <div><img class="logo" src="../../../static/Images/logo.png" alt=""/></div>
+    </div>
+
+    <ul class="Menu">
+        <li>
+            <a href="/presentation/AcercaDe/show">Acerca De</a>
+        </li>
+        <li>
+            <a href="/presentation/Login/show">Login</a>
+        </li>
+
+    </ul>
+</div>
+
+<form method="post" action="#" th:action="@{/login/login}">
+    <div>
+        <label for="usern">Username:</label>
+        <input type="text" id="usern" name="usern" placeholder="Enter Username" required>
+        <label for="pasw">Password:</label>
+        <input type="password" id="pasw" name="pasw" placeholder="Enter Password" required>
+        <button type="submit">Login</button>
+        <label>New with us?</label>
+        <label>Create your new acount today</label>
+        <label><a href="/newU">CREATE NEW ACCOUNT</a></label>
+    </div>
+</form>
+
+<div>
+    <footer>
+        facturasOnline@best.team.com
+    </footer>
+</div>
+</body>
+</html>
+

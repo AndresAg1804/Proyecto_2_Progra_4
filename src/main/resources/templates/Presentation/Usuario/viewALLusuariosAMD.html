@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<head>
+    <title>Facturacion</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../static/css/Menu.css">
+    <link rel="stylesheet" href="../../../static/css/styleHeaderFooter.css">
+    <link rel="stylesheet" href="../../../static/css/tablaUsuarios.css">
+
+
+</head>
+<body>
+<div class="header">
+    <div>
+        <div>
+            <p>Facturación </p> <p>electronica</p></div>
+        <div><img class="logo" src="../../../static/Images/logo.png" alt=""/></div>
+    </div>
+    <ul class="Menu">
+        <li>
+            <th:block th:if="${session.usuario!=null}">
+                <a>Login as <th:block th:text="${session.usuario.getUsern()}"></th:block></a>
+            </th:block>
+            <th:block th:unless="${session.usuario!=null}">
+                <a>null</a>
+            </th:block>
+        </li>
+        <li>
+            <a href="/presentation/AcercaDe/show">Acerca De</a>
+        </li>
+        <li>
+            <a href="/presentation/OUT/OUT">Logout</a>
+        </li>
+
+    </ul>
+</div>
+<div id="center">
+    <br>
+    <table id="tuser" style="border: 3px solid black">
+        <label class="letterA">System users</label>
+        <br>
+        <br>
+        <tr> <th>Username</th> <th>Password</th> <th>Tipo</th> <th>Estado</th> </tr>
+        <tr th:each="u: ${usuarios_too_approve}">
+            <th:block th:if="${(u.getTipo().equals('PRO'))}">
+            <td th:text="${u.getUsern()}"/>
+            <td th:text="${u.getPasw()}"/>
+            <td th:text="${u.getTipo()}"/>
+
+                <th:block th:if="${u.getProveedoresByIdprov().getAprobado()==0 }">
+                    <td th:text="Pendiente"/>
+                </th:block>
+                <th:block th:unless="${u.getProveedoresByIdprov().getAprobado()==0  }">
+                    <td th:text="Aprovado"/>
+                </th:block>
+
+            </th:block>
+            <td><a th:href="@{/presentatio/Usuarios/view(usern=${u.getUsern()})}"></a></td>
+        </tr>
+    </table>
+    <br>
+    <br>
+    <form class="letterB" method="post" action="#" th:action="@{/amd/approve}">
+        <label for="username">What username do you want to change its approvel status?</label>
+        <input type="text" id="username" name="username" placeholder="username" required>
+        <button type="submit">CHANGE</button>
+    </form>
+</div>
+<div>
+    <footer>
+        facturasOnline@best.team.com
+    </footer>
+</div>
+</body>
+</html>

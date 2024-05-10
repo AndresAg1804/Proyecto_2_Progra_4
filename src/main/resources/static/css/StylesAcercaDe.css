@@ -1,0 +1,27 @@
+div{
+    background-color: burlywood;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    margin: 20%;
+    padding: 0;
+    box-sizing: content-box;
+}
+
+body{
+    background-color: blanchedalmond;
+}
+
+.titulo{
+    text-align: center;
+    font-family: "Baskerville Old Face", serif;
+    font-size: xxx-large;
+    color: dimgrey;
+}
+
+.list-gray-arrow {
+    list-style: disc inside url("static/Images/arrow.png");
+    text-align: center;
+    color: black;
+}

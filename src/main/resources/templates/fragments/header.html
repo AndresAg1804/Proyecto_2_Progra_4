@@ -1,0 +1,28 @@
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<header th:fragment="header" >
+    <link rel="stylesheet" href="../../static/css/Menu.css">
+<div>
+    <div>
+        <ul class="Menu">
+            <li><a href="/presentation/AcercaDe/show">Acerca de</a></li>
+            <th:block th:if="${session.usuario!=null}">
+                <th:block th:if="${session.usuario.getRol().equals('PRO')}">
+                    <li><a>Facturar</a></li>
+                    <li><a>Clientes</a></li>
+                    <li><a>Productos</a></li>
+                    <li><a>Facturar</a></li>
+                    <li><a>Usuario</a></li>
+                </th:block>
+                <th:block th:if="${session.usuario.getRol().equals('ADM')}">
+                    <li><a>Proveedores</a></li>
+                    <li><a>Usuario</a></li>
+                </th:block>
+            </th:block>
+            <th:block th:unless="${session.usuario!=null}">
+                <li><a href="/presentation/login/show">Login</a></li>
+            </th:block>
+        </ul>
+    </div>
+</div>
+</header>

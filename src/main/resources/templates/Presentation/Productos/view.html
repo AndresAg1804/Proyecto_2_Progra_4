@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:extends="HeadFooter">
+<head>
+    <title>Facturacion</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../static/css/Menu.css">
+    <link rel="stylesheet" href="../../../static/css/styleHeaderFooter.css">
+    <link rel="stylesheet" href="../../../static/css/productos.css">
+</head>
+<div class="header">
+    <div>
+        <div>
+            <p>Facturación </p> <p>electronica</p></div>
+        <div><img class="logo" src="../../../static/Images/logo.png" alt=""/></div>
+    </div>
+    <ul class="Menu">
+        <li>
+            <a href="/presentation/AcercaDe/show">Acerca De</a>
+        </li>
+        <li>
+            <a href="/presentation/Facturar/show">Facturar</a>
+        </li>
+        <li>
+            <a href="/presentation/Clientes/show">Clientes</a>
+        </li>
+        <li>
+            <a href="/presentation/Productos/show">Productos</a>
+        </li>
+        <li>
+            <a href="/presentation/Facturas/show">Facturas</a>
+        </li>
+        <li>
+            <a href="/presentation/Usuarios/show">Usuario</a>
+        </li>
+        <li>
+            <a href="/presentation/OUT/OUT">Logout</a>
+        </li>
+    </ul>
+</div>
+<br>
+<div class="all">
+    <div class="productos">
+        <div class="ex_para_overflow">
+            <table>
+                <thead>
+                <tr>
+                    <form class="producto-buscar" method="post" th:action="@{/productos/buscar}">
+                        <div class="form-group-buscar">
+                            <label for="idPrp">ID:</label>
+                            <input type="text" name="idPr" id="idPrp" value="">
+                            <button type="submit" >Buscar</button>
+                        </div>
+                    </form>
+                </tr>
+                <tr>
+                    <th> </th>
+                    <th>ProductosID</th>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Cant</th>
+                    <th> </th>
+                </tr>
+                </thead>
+                <tr th:each="p: ${productos}">
+                    <td>
+                        <a th:href="@{/presentation/Facturar/AddProduct(idP=${p.getIdPr()})}"><img class="editimg" src="../../../static/Images/check.png"></a>
+                    </td>
+                    <td>
+                        <div th:text="${p.getIdPr()}"></div>
+                    </td>
+                    <td>
+                        <div th:text="${p.getNombreP()}"></div>
+                    </td>
+                    <td>
+                        <div th:text="${p.getPrecio()}"></div>
+                    </td>
+                    <td>
+                        <div th:text="${p.getCant()}"></div>
+                    </td>
+                    <td>
+                        <a th:href="@{/set/editpro(idPr=${p.getIdPr()},nombreP=${p.getNombreP()},precio=${p.getPrecio()},cant=${p.getCant()})}"><img class="editimg" src="../../../static/Images/edit.png"></a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="forms">
+            <form class="producto-forms" method="post" th:action="@{/productos/add}">
+                <div>
+                    <h2>Editar</h2>
+                </div>
+                <div class="form-group">
+                    <th:block th:if="${proEDIT != null}">
+                        <input type="hidden" name="idPr" th:value="${proEDIT != null ? proEDIT.getIdPr() : ''}">
+                    </th:block>
+                    <th:block th:unless="${proEDIT != null}">
+                        <label for="idPr">ID:</label>
+                        <input type="text" name="idPr" id="idPr" required th:value="${proEDIT != null ? proEDIT.getIdPr() : ''}">
+                    </th:block>
+                </div>
+                <div class="form-group">
+                    <label for="nombreP">Nombre:</label>
+                    <input type="text" name="nombreP" id="nombreP" required th:value="${proEDIT != null ? proEDIT.getNombreP() : ''}">
+                </div>
+                <div class="form-group">
+                    <label for="precio">Precio:</label>
+                    <input type="number" name="precio" id="precio" required th:value="${proEDIT != null ? proEDIT.getPrecio() : ''}">
+                </div>
+                <div class="form-group">
+                    <label for="cant">Cantidad:</label>
+                    <input type="number" name="cant" id="cant" required th:value="${proEDIT != null ? proEDIT.getCant() : ''}">
+                </div>
+                <button type="submit" >Crear Producto</button>
+            </form>
+        </div>
+    </div>
+</div>
+<footer>
+    facturasOnline@best.team.com
+</footer>
+</html>

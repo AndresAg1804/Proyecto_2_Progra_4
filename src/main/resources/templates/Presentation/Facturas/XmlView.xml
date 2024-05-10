@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FacturacionElectronica>
+    <Clave>456654546423131354898754132165849843516548413621879887131847</Clave>
+    <CodigoActividad>123488112</CodigoActividad>
+    <NumeroConsecutivo>0001112220003330002222</NumeroConsecutivo>
+    <FechaEmision th:text="${facturaXml.getFecha()}"/>
+    <Emisor>
+        <Nombre th:text="${facturaXml.getProveedoresByIdProveedor().getNombreP()}"/>
+        <Identificacion>
+            <Tipo>01</Tipo>
+            <IdentificacionRegistrada th:text="${facturaXml.getProveedoresByIdProveedor().getIdP()}"/>
+        </Identificacion>
+        <NombreComercial th:text="${facturaXml.getProveedoresByIdProveedor().getNombreP()}"/>
+    </Emisor>
+    <Receptor>
+        <Nombre th:text="${facturaXml.getClientesByIdCliente().getNombreC()}"/>
+        <Identificacion>
+            <Tipo>02</Tipo>
+            <IdentificacionRegistrada th:text="${facturaXml.getClientesByIdCliente().getIdC()}"/>
+        </Identificacion>
+    </Receptor>
+    <DetallesServicio th:each="d : ${detallesXml}">
+        <detalle>
+            <codigoProducto th:text="${d.getProductoByIdProd().getIdPr()}"/>
+            <nombre th:text="${d.getProductoByIdProd().getNombreP()}"/>
+            <precio th:text="${d.getProductoByIdProd().getPrecio()}"/>
+            <cantidad th:text="${d.getCantidad()}"/>
+            <montoFinal th:text="${d.getMonto()}"/>
+        </detalle>
+    </DetallesServicio>
+    <ResumenFactura>
+        <NumeroFactura th:text="${facturaXml.getNumFact()}"/>
+        <MontoTotal th:text="${totalFactura}" />
+    </ResumenFactura>
+</FacturacionElectronica>
