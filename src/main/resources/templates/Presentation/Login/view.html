@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" th:extends="HeadFooter">
+<html lang="en">
 <head>
     <title>Login</title>
     <meta charset="UTF-8">
@@ -7,26 +7,12 @@
     <link rel="stylesheet" href="../../../static/css/Menu.css">
     <link rel="stylesheet" href="../../../static/css/styleHeaderFooter.css">
     <link rel="stylesheet" href="../../../static/css/productos.css">
+    <script src="../../../js/render_header_foot.js"></script>
 </head>
-<div class="header">
-    <div>
-        <div>
-            <p>Facturación </p> <p>electronica</p></div>
-        <div><img class="logo" src="../../../static/Images/logo.png" alt=""/></div>
-    </div>
-
-    <ul class="Menu">
-        <li>
-            <a href="/presentation/AcercaDe/show">Acerca De</a>
-        </li>
-        <li>
-            <a href="/presentation/Login/show">Login</a>
-        </li>
-
-    </ul>
+<div id="header" class="header">
 </div>
 
-<form method="post" action="#" th:action="@{/login/login}">
+<form method="post" action="#" >
     <div>
         <label for="usern">Username:</label>
         <input type="text" id="usern" name="usern" placeholder="Enter Username" required>
@@ -39,10 +25,7 @@
     </div>
 </form>
 
-<div>
-    <footer>
-        facturasOnline@best.team.com
-    </footer>
+<div id="footer" class="footer">
 </div>
 </body>
 </html>
